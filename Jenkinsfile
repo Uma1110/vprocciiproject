@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools {
-        maven "MAVEN3"
+        maven "maven3"
         jdk "OracleJDK8"
     }
 
@@ -18,7 +18,7 @@ pipeline{
          SONARSERVER = 'sonarserver'
          SONARSCANNER = 'sonarscanner'
          
-    }
+        }
     stages {
         stage('Build') {
             steps {
