@@ -15,7 +15,7 @@ pipeline{
          NEXUSPORT = '8081'
          NEXUS_GRP_REPO = 'vpro-maven-group'
          NEXUS_LOGIN = 'nexuslogin' 
-    
+
          
         }
     stages {
@@ -23,14 +23,13 @@ pipeline{
             steps {
                sh 'mvn clean install -U -DskipTests -Dmaven.repo.local=~/.m2/repository'
             }
-        } 
-           post {
+             post {
                 success {
                     echo 'Now Archiving...'
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
-           }
-           }   
+            }
+        }
             stage('UNIT TEST'){
             steps {
                 sh 'mvn clean install -U -DskipTests -Dmaven.repo.local=~/.m2/repository test'
@@ -69,8 +68,7 @@ pipeline{
         }
     }
 }
+}
 
 
 
-
-    
